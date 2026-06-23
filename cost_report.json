@@ -1,0 +1,17 @@
+{
+  "llm_calls": 456,
+  "prompt_tokens": 212754,
+  "completion_tokens": 168233,
+  "embed_calls": 26,
+  "embed_tokens": 102903,
+  "llm_seconds": 2850.331817150116,
+  "embed_seconds": 16.951279640197754,
+  "extract_seconds": 229.4,
+  "n_chunks": 412,
+  "n_triples": 5646,
+  "n_nodes": 4702,
+  "n_edges": 5646,
+  "est_llm_cost_usd": 0.1329,
+  "est_embed_cost_usd": 0.0021,
+  "est_total_cost_usd": 0.1349
+}
