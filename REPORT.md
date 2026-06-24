@@ -23,8 +23,22 @@ Các tham số gom trong một cell: `MAX_DOCS` (số tài liệu), `EXTRACTION_
 ### 2. Đồ thị tri thức
 `knowledge_graph.png` — 25 thực thể bậc cao nhất. Đồ thị: **4.702 node / 5.646 cạnh** từ 412 chunk (30 tài liệu). Các hub bậc cao nhất: Polestar (540), REE (171), Electric Vehicle (158), NVIDIA (141), VinFast (125), China (110), Tesla (92).
 
+![Đồ thị tri thức (Matplotlib)](knowledge_graph.png)
+
+Bậc cao nhất (output thực tế khi chạy notebook):
+
+![Top entities by degree](screenshots/01_top_entities.png)
+
 ### 3. So sánh Flat RAG vs GraphRAG — 20 câu hỏi benchmark
 Bảng đầy đủ: `comparison_flatrag_vs_graphrag.csv` (câu hỏi, seed của đồ thị, số dữ kiện, câu trả lời của cả hai).
+
+Ảnh chụp kết quả một câu Flat RAG bịa/thiếu còn GraphRAG nối được dữ kiện liên tài liệu:
+
+![Flat RAG vs GraphRAG](screenshots/04_comparison.png)
+
+Ví dụ truy hồi đa bước (multi-hop) của GraphRAG:
+
+![GraphRAG multi-hop query](screenshots/02_graphrag_query.png)
 
 **Trường hợp GraphRAG thắng (Flat RAG bịa/thiếu do truy hồi trượt):**
 
@@ -48,6 +62,8 @@ Bảng đầy đủ: `comparison_flatrag_vs_graphrag.csv` (câu hỏi, seed củ
 | Số lần gọi / token embedding | 26 / 102.903 |
 | Thời gian trích xuất (12 luồng) | 229 giây |
 | Chi phí ước tính | **$0,135** ($0,133 LLM + $0,002 embedding) |
+
+![Cost / build analysis](screenshots/03_cost_report.png)
 
 Khâu trích xuất chiếm phần lớn chi phí và độ trễ: mỗi chunk một lần gọi LLM (412 lần), trong khi Flat RAG chỉ cần embedding. Đó chính là sự đánh đổi của GraphRAG — trả chi phí lập chỉ mục một lần để đổi lấy khả năng suy luận đa bước lúc truy vấn.
 
